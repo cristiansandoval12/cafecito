@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'cafe.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bdcompra1',
+        'NAME': 'bdcompras1',
         'USER': 'root',
         'PASSWORD':'',
         'HOST': 'localhost',
