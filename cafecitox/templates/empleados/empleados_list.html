@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Nombre</td>
+            <td>Apellidos</td>
+            <td>Telefono</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% if object_list%}
+        {% for empleados in object_list%}
+        <tr>
+            <td>{{empleados.id}}.</td>
+            <td>{{empleados.nombre}}.</td>
+            <td>{{empleados.apellidos}}</td>
+            <td>{{empleados.telefono}}</td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'empleados_editar' empleados.id %}">Editar</a>
+                <a class="btn btn-danger" href="{% url 'empleados_eliminar' empleados.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1>No hay registros de empleados</h1>
+        {% endif %}
+    <tbody>
+</table>
+
+
+<div class="pagination">
+    <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; Primero</a>
+            <a href="?page={{ page_obj.previous_page_number}}">Previo</a>
+            {% endif %}
+            <span class="current">
+                Página {{page_obj.number}} de {{page_obj.paginator.num_pages}}.
+            </span>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number}}">Siguiente</a>
+        <a href="?page={{ page_obj.paginator.num_pages}}">Último &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+<a href="{%url 'empleados_crear'%}" class="btn btn-primary">Crear</button></a>
+
+{% endblock %}
