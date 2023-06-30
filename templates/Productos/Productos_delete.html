@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<form method='post'>
+    {% csrf_token %}
+    <h3>¿Desea eliminar {{object.Cantidad_Productos}}?</h3>
+    <button class="btn btn-danger" type="submit" class="btn btn-primary";>Eliminar</button>
+    <a class="btn btn-default" href="{% url 'Productos_listar' %}">Cancelar</a>
+</form>
+{% endblock %}
