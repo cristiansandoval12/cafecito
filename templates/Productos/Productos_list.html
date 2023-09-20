@@ -1,0 +1,77 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-6 ml-auto">
+            
+            <h1>Productos</h1>
+        </div>
+        <div class="col-6 text-right"> <!-- Aplicamos la clase align-right aquí -->        
+            <div><a class="btn btn-primary btn-circle" onclick="return abrir_modal('{% url 'Productos_crear' %}')" href="#"
+                role="button"><i class="fa fa-plus-square"></i></a> 
+            </div>  
+        </div>
+    </div>
+</div>
+
+<p></p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Nombre</td>
+                <td>Cantidad de productos</td>
+                <td>Valor</td>
+                <td>Descripcion</td>
+                <td>Estado</td>
+                <td>Acciones</td>
+            </tr>
+        </thead>
+        <tbody>
+            {%if object_list %}
+            {%for Productos in object_list %}
+            <tr>
+                <td>{{Productos.id}}</td>
+                <td>{{Productos.nombre}}</td>
+                <td>{{Productos.cantidad_productos}}</td>
+                <td>{{Productos.valor}}</td>
+                <td>{{Productos.descripcion}}</td>
+                <td>{{Productos.estado|yesno:"Activo, Inactivo"}}</td>
+                <td>
+                    <a class="btn btn-warning btn-circle" onclick="return abrir_modal('{% url 'Productos_editar' Productos.id %}')" href="#" role="button"><i class="far fa-edit"></i></a>
+                    <a class="btn btn-danger btn-circle" onclick="return abrir_modal('{% url 'Productos_eliminar' Productos.id %}')" href="#" role="button"><i class="far fa-trash-alt" style="color:white"></i></a>
+                    <a class="btn btn-danger btn-circle" onclick="return abrir_modal('{% url 'Productos_inactivar' Productos.id %}')" href="#" role="button" style="color:white"></a>
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <h1>No hay  registro de Productos</h1>
+            {% endif %}
+        </tbody>
+    </table>
+    <div class='pagination'>
+        <span class='step-links'>
+            {%if page_obj.has_previous%}
+            <a href='?page=1'>&laquo; Primero</a>
+            <a href='?page={{page_obj.previous_page_number}}'>Previo</a>
+            {%endif%}
+            <span class='current'>
+                Página {{page_obj.number}} de {{page_obj.paginator.num_pages}}.
+            </span>
+        {%if page_obj.has_next%}
+        <a href='?page={{page_obj.next_page_number}}'> Siguiente </a>
+        <a href='?page={{page_obj.paginator.num_pages}}'>Último &raquo; </a>
+        {% endif%}
+        </span>
+    </div>
+{% endblock %}
+
+{% block js_page %}
+<script>
+    //Llamamos al plugin del datatable
+    $(document).ready(function(){
+        $('.table').DataTable();
+    });
+</script>
+{% endblock %}

@@ -39,8 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.compra',
+    'apps.venta',
     'apps.usuario',
+    'apps.empleados',
+    'apps.cliente',
+    'widget_tweaks',
+    'apps.inv',
+    'apps.bases',
+    'apps.auten',
+    'apps.Productos',
+    'apps.cmp',
 ]
 
 MIDDLEWARE = [
@@ -80,11 +88,11 @@ WSGI_APPLICATION = 'cafe.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bdcompras1',
+        'NAME': 'bdcompras5',
         'USER': 'root',
         'PASSWORD':'',
         'HOST': 'localhost',
-        'PORT': '3306'
+        'PORT': '3307'
     }
 }
 
@@ -131,6 +139,15 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL='/static/'
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
-LOGIN_REDIRECT_URL=reverse_lazy("compra_listar") 
+
+# CONFIGURACION DE INICIO Y CIERRE DE SESION 
+LOGIN_REDIRECT_URL=reverse_lazy("cliente_listar") 
 LOGOUT_REDIRECT_URL= reverse_lazy('login')
- 
+
+# CONFIGURACION DE EMAIL
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""

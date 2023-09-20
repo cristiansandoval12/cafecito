@@ -1,0 +1,62 @@
+.title h1 {
+    text-align: center;
+    color: white;
+}
+
+.F {
+    background-color: white;
+    margin: auto;
+    text-align: center;
+    padding: 8px 0px;
+    width: 30rem;
+    border-radius: 4px;
+}
+
+.email {
+    width: 85%;
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    background: transparent;
+}
+
+.password {
+    width: 85%;
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 40px;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    background: transparent;
+}
+
+.access button {
+    width: 25.5rem;
+    color: white;
+    background-color: rgb(255, 217, 0);
+    border: none;
+}
+
+.login {
+    text-decoration: none;
+    color: black;
+}
+
+.lost {
+    text-decoration: none;
+    color: black;
+}
+
+.x {
+    text-align: center;
+    color: white;
+}
+
+.z {
+    text-align: center;
+    color: orange;
+}

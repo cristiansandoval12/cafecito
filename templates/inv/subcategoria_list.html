@@ -1,0 +1,72 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h1>Listado de Sub Categorias</h1>
+<p></p>
+<div>
+    <a class="btn btn-primary" href="{% url 'inv:subcategoria_new' %}" role="button"><i class="fa fa-plus-square"></i> Nueva</a>
+</div>
+<p></p>
+{% if not obj %}
+<div class="alert alert-info">No hay Sub Categorias</div>
+{% else %}
+<table class='table table-striped table-hover'>
+    <thead>
+        <tr>
+            <td>Categoria</td>
+            <td>Id</td>
+            <td>Descripcion</td>
+            <td>Estado</td>
+            <td>F. Creado</td>
+            <td>F. Modif</td>
+            <td class="all">Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% if obj %} {% for item in obj %}
+        <tr>
+            <td>{{item.categoria}}.</td>
+            <td>{{item.id}}.</td>
+            <td>{{item.descripcion}}.</td>
+            <td>{{item.estado|yesno:"Activo, Inactivo"}}</td>
+            <td>{{item.fc|date:'d/m/y H:i:s'}}</td>
+            <td>{{item.fm|date:'d/m/y H:i:s'}}</td>
+
+            <td>
+                <a class="btn btn-warning btn-circle" href="{% url 'inv:subcategoria_edit' item.id %}" role="button"><i class="far fa-edit"></i></a>
+
+                {% comment %} <a class="btn btn-danger btn-circle" href="{% url 'inv:subcategoria_del' item.id %}" role="button"><i class="far fa-trash-alt"></i></a> {% endcomment %}
+            </td>
+        </tr>
+        {% endfor %} {% else %}
+        <h1>No hay registros de empleados</h1>
+        {% endif %}
+        <tbody>
+</table>
+{% endif %}
+
+<br>
+<div class="pagination">
+    <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; Primero</a>
+            <a href="?page={{ page_obj.previous_page_number}}">Previo</a>
+            {% endif %}
+            <span class="current">
+                Página {{page_obj.number}} de {{page_obj.paginator.num_pages}}.
+            </span> {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number}}">Siguiente</a>
+    <a href="?page={{ page_obj.paginator.num_pages}}">Último &raquo;</a> {% endif %}
+    </span>
+</div>
+
+{% endblock %}
+
+{% block js_page %}
+<script>
+    //Llamamos al plugin del datatable
+    $(document).ready(function(){
+        $('.table')DataTable();
+    });
+</script>
+{% endblock %}

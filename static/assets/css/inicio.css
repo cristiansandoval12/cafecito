@@ -1,0 +1,104 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.title h1 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.F {
+    background-color: #a67b40;
+    margin: auto;
+    text-align: center;
+    padding: 8px 0px;
+    width: 30rem;
+    border-radius: 4px;
+}
+
+::placeholder {
+    color: rgb(255, 255, 255);
+}
+
+.register {
+    background-color: #a67b40;
+    width: 85%;
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    background: transparent;
+}
+
+.password {
+    background-color: #a67b40;
+    width: 85%;
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 40px;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    background: transparent;
+}
+
+
+/* .access button {
+    width: 25.5rem;
+    color: white;
+    background-color: #53320e;
+    border: none;
+} */
+
+.register {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    margin-right: 150px;
+}
+
+.lost {
+    padding: 0px 40px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.btn.btn-primary {
+    background-color: rgb(214, 0, 0);
+}
+
+.btn.btn-primary:hover {
+    background-color: rgb(255, 5, 180);
+}
+
+.x {
+    text-align: center;
+    color: white;
+}
+
+.z {
+    text-align: center;
+    color: orange;
+}
+
+.L {
+    text-decoration: none;
+    color: white;
+}
+
+.access button {
+    width: 25.5rem;
+    height: 3rem;
+    color: white;
+    background-color: #53320e;
+    border: none;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+    /* Agrega una transición suave */
+}
+
+.access button:hover {
+    background-color: #c9a26e !important;
+    /* Cambia el color en hover */
+}

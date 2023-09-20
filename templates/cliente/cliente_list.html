@@ -1,0 +1,78 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-6 ml-auto">
+            <h1>Clientes</h1>
+        </div>
+        <div class="col-6 text-right"> <!-- Aplicamos la clase align-right aquí -->        
+            <div><a class="btn btn-primary btn-circle" onclick="return abrir_modal('{% url 'cliente_crear' %}')" href="#"
+                role="button"><i class="fa fa-plus-square"></i></a> 
+            </div>  
+        </div>
+    </div>
+</div>
+<table class='table table-striped'>
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Nombre</td>
+            <td>Apellidos</td>
+            <td>Telefono</td>
+            <td>Direccion</td>
+            <td>Estado</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <p></p>
+    <tbody>
+        {% if object_list %}
+        {% for client in object_list  %}
+        <tr>
+            <td>{{ client.id }}</td>
+            <td>{{ client.nombre }}</td>
+            <td>{{ client.apellido }}</td>
+            <td>{{ client.telefono }}</td>
+            <td>{{ client.direccion }}</td>
+            <td>{{ client.estado|yesno:"Activo, Inactivo" }}</td>
+            <td>
+                <a class="btn btn-warning btn-circle" onclick="return abrir_modal('{% url 'cliente_editar' client.id %}')" href="#" role="button"><i class="far fa-edit"></i></a>
+                <a class="btn btn-danger btn-circle" onclick="return abrir_modal('{% url 'cliente_inactivar' client.id %}')" href="#" role="button" style="color:white"><i class="fas fa-power-off"></i></a>
+                {% comment %} <a class="btn btn-warning btn-circle" href="{% url 'cliente_inactivar' client.id %}"  role="button" style="color:white"></a> {% endcomment %}
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1>No hay registro de cliente</h1>
+        {% endif %}
+    </tbody>
+</table>
+<br>
+{% comment %} <div class="pagination">
+    <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; Primero</a>
+            <a href="?page={{ page_obj.previous_page_number}}">Previo</a>
+            {% endif %}
+            <span class="current">
+                Página {{page_obj.number}} de {{page_obj.paginator.num_pages}}.
+            </span>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number}}">Siguiente</a>
+        <a href="?page={{ page_obj.paginator.num_pages}}">Último &raquo;</a>
+        {% endif %}
+    </span>
+</div> {% endcomment %}
+
+
+{% endblock %}
+
+{% block js_page %}
+<script>
+    //Llamamos al plugin del datatable
+    $(document).ready(function(){
+        $('.table').DataTable();
+    });
+</script>
+{% endblock %}

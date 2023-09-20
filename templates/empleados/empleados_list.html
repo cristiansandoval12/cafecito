@@ -1,0 +1,77 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-6 ml-auto">
+            <h1>Empleados</h1>
+        </div>
+        <div class="col-6 text-right"> <!-- Aplicamos la clase align-right aquí -->        
+            <div><a class="btn btn-primary btn-circle" onclick="return abrir_modal('{% url 'empleados_crear' %}')" href="#"
+                role="button"><i class="fa fa-plus-square"></i></a> 
+            </div>  
+        </div>
+    </div>
+</div>
+
+<p></p>
+<table class='table table-striped'>
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Nombre</td>
+            <td>Apellidos</td>
+            <td>Telefono</td>
+            <td>Estado</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% if object_list%}
+        {% for empleados in object_list%}
+        <tr>
+            <td>{{empleados.id}}</td>
+            <td>{{empleados.nombre}}</td>
+            <td>{{empleados.apellidos}}</td>
+            <td>{{empleados.telefono}}</td>
+            <td>{{empleados.estado|yesno:"Activo, Inactivo"}}</td>
+            <td>
+                <a class="btn btn-warning btn-circle" onclick="return abrir_modal('{% url 'empleados_editar' empleados.id %}')" href="#" role="button"><i class="far fa-edit"></i></a>
+                {% comment %} <a class="btn btn-danger btn-circle" onclick="return abrir_modal('{% url 'empleados_eliminar' empleados.id %}')" href="#" role="button"><i class="far fa-trash-alt" style="color:white"></i></a> {% endcomment %}
+                <a class="btn btn-danger btn-circle" onclick="return abrir_modal('{% url 'empleados_inactivar' empleados.id %}')" href="#" role="button" style="color:white"><i class="fas fa-power-off"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1>No hay registros de empleados</h1>
+        {% endif %}
+    <tbody>
+</table>
+
+{% comment %} <br>
+<div class="pagination">
+    <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; Primero</a>
+            <a href="?page={{ page_obj.previous_page_number}}">Previo</a>
+            {% endif %}
+            <span class="current">
+                Página {{page_obj.number}} de {{page_obj.paginator.num_pages}}.
+            </span>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number}}">Siguiente</a>
+        <a href="?page={{ page_obj.paginator.num_pages}}">Último &raquo;</a>
+        {% endif %}
+    </span>
+</div> {% endcomment %}
+
+{% endblock %}
+
+{% block js_page %}
+<script>
+    //Llamamos al plugin del datatable
+    $(document).ready(function(){
+        $('.table').DataTable();
+    });
+</script>
+{% endblock %}

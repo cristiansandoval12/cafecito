@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El mejor café de colombia</title>
+    <link rel="stylesheet" type="text/css" href="{% static "assets/css/cafecito.css" %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	{% comment %} <link rel="stylesheet" type="text/css" href="{% static "assets/plugins/global/plugins.bundle.css" %}"> {% endcomment %}
+	{% comment %} <link rel="stylesheet" type="text/css" href="{% static "assets/plugins/global/plugins.bundle.css" %}"> {% endcomment %}
+</head>
+
+<body style="background-color: #a67b40; font-family: Poppins">
+
+    <header style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static "assets/img/373982.jpg" %}'); background-position: center center; background-repeat: no-repeat; background-size: cover; height: 70vh; display: flex; align-items: center; justify-content: center;">        
+        <div class="menu container">
+            <a href="#" class="logo">Cafecito Occidental</a>
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img class="menu-icono" src="menu-btn (1).png" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#contacto">Contactanos</a></li>
+                    <li><a href="{% url 'login'%}" class="btn btn-success">Acceso</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-text">
+            <h1>Cafecito occidental</h1>
+            <p>Bienvenidos a Cafecito Occidental, el lugar perfecto para disfrutar del mejor café. Nuestros granos de café son cuidadosamente seleccionados de las mejores regiones cafeteras de Colombia y tostados en pequeñas cantidades para garantizar un sabor fresco y auténtico.
+            </p>
+            <a href="#" class="btn-1">Más información</a>
+        </div>
+    </header>
+    <div class="enlace" id="servicios">
+        <main class="services container">
+            <h1 id="servicios">Servicios</h2>
+            <br></br>
+            <p class="txt-1">A continuación encontrarás información sobre nuestros diferentes tipos de servicios.
+            </p>
+            <div class="group-services">
+                <div class="service">
+                    <img src="{% static 'assets/img/alo.jpg' %}" style="margin-top: 50px">
+                    <h2>Bebidas tradicionales</h2>
+                    <p>Ruso, Capuccino, Árabe, galao, Americano, Entre otros.</p>
+                </div>
+                <div class="service">
+                    <img src="{% static 'assets/img/images.jpg' %}" style="margin-top: 50px">
+                    <h2>Café frio - Café dulce</h2>
+                    <p>Desde un café dulce hasta un café recargado para tu día a día.</p>
+                </div>
+
+            </div>
+
+
+        </main>
+    </div>
+
+    <section class="porfolio container">
+
+        <div class="porfolio-txt">
+            <h2>¿Aún dudas?</h2>
+            <p>En cafecito occidental, nos enorgullecemos de ofrecer un ambiente acogedor y relajado donde nuestros clientes puedan disfrutar de una experiencia única de café. ¡Ven a visitarnos y déjanos sorprenderte con nuestro café excepcional y nuestro servicio excepcional!
+            </p>
+        </div>
+        <div class="imgs">
+            <img src="{% static 'assets/img/coffe-1.jpeg' %}">
+            <img src="{% static 'assets/img/coffe-2.jpeg' %}">
+        </div>
+
+        <a href="#" class="btn-1">Más información</a>
+
+    </section>
+
+    <section class="bg-sec" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static "assets/img/373987.jpg" %}')">
+        <div class="bg-txt container">
+            <h2>¿SABÍAS QUÉ?</h2>
+            <p>Colombia ofrece una rica y amplia diversidad de sabores debido a múltiples factores geográficos, climáticos y de procesos que entran en juego a lo largo de toda la cadena de producción del café, desde el cultivo hasta la taza.
+            </p>
+        </div>
+    </section>
+
+    <section class="prices container">
+        <div class="price">
+            <h2>$38.900</h2>
+            <ul>
+                <li>Café especial.</li>
+                <li>Café especial don gallo.</li>
+                <li>Grato crunchis (café con chocolates).</li>
+            </ul>
+            <a href="#" class="btn-1">Más información</a>
+        </div>
+        <div class="price">
+            <h2>$60.900</h2>
+            <ul>
+                <li>Café Martha Moreno</li>
+                <li>Café insignia (500Gr)</li>
+                <li>Café especial peligro </li>
+            </ul>
+            <a href="#" class="btn-1">Más información</a>
+        </div>
+        <div class="price">
+            <h2>$80.900</h2>
+            <ul>
+                <li>Cápsulas de café gourmet</li>
+                <li>Café especial grato Geisha</li>
+                <li>Cápsulas de café gourmet intenso</li>
+            </ul>
+            <a href="#" class="btn-1">Más información</a>
+        </div>
+    </section>
+
+    {% comment %} <footer> {% endcomment %}
+
+        {% comment %} <div class="ft container">
+            <div class="enlace">
+                <h3></h3>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+            </div>
+            <div class="enlace" id="contacto">
+                <h3>Nuestras redes sociales:</h3>
+                <li><a href="#">IG: @cafecito_occidental29</a></li>
+                <li><a href="#">FBOOK: cafeoccidental29</a></li>
+                <li><a href="#">WhatsAPP: +57 3025638503</a></li>
+            </div>
+            <div class="enlace" id="c">
+                <h3>CREATED BY:</h3>
+                <li><a href="#">ANDRES ECHEVERRI.</a></li>
+                <li><a href="#">SEBASTIAN VASQUEZ.</a></li>
+                <li><a href="#">EDUARDO CEBALLOS.</a></li>
+                <li><a href="#">CRISTIAN SANDOVAL.</a></li>
+            </div>
+            <div class="lol">
+                <h3>Email</h3>
+                <form>
+                    <input type="text" class="btn-2" placeholder="gaticasCalientes@gmail.com3">
+                    <input type="submit" value="Enviar" class="btn-3">
+                </form>
+            </div>
+        </div> {% endcomment %}
+    {% comment %} </footer> {% endcomment %}
+
+	<!--begin::Javascript-->
+	<script>var hostUrl = "assets/index.html";</script>
+	<!--begin::Global Javascript Bundle(used by all pages)-->
+
+	<script src="{% static  'assets/plugins/global/plugins.bundle.js' %}"></script>
+	<script src="{% static  "assets/js/scripts.bundle.js" %}"></script>
+	<!--end::Global Javascript Bundle-->
+	<!--begin::Page Vendors Javascript(used by this page)-->
+	<script src="{% static  "assets/plugins/custom/fullcalendar/fullcalendar.bundle.js" %}"></script>
+	<script src="{% static  "assets/plugins/custom/datatables/datatables.bundle.js" %}"></script>
+	<!--end::Page Vendors Javascript-->
+	<!--begin::Page Custom Javascript(used by this page)-->
+	<script src="{% static  "assets/js/widgets.bundle.js" %}"></script>
+	<script src="{% static  "assets/js/custom/widgets.js" %}"></script>
+	<script src="{% static  "assets/js/custom/apps/chat/chat.js" %}"></script>
+	<script src="{% static  "assets/js/custom/intro.js" %}"></script>
+	<script src="{% static  "assets/js/custom/utilities/modals/upgrade-plan.js" %}"></script>
+	<script src="{% static  "assets/js/custom/utilities/modals/create-app.js" %}"></script>
+	<script src="{% static  "assets/js/custom/utilities/modals/users-search.js" %}"></script> 
+
+</body>
+
+</html>
